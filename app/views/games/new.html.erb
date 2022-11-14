@@ -1,0 +1,18 @@
+<h1>NEW GAME</h1>
+
+
+<div class="container">
+  <ul class="list-group list-group-horizontal">
+    <%  @array.each do |letter| %>
+    <li class="list-group-item list-group-item-secondary m-2"> <%= letter %> </li>
+    <% end %>
+  </ul>
+  <form action="/score" method="post" data-turbo="false" class="w-50">
+    <input name="letters"type="text"  class="form-control d-none" value=" <%= @array.join %> " >
+    <label for="word" class="form-label">What is the longest word you can find ?</label>
+    <input name="word"type="text" id="bigword" class="form-control">
+    <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+    <button type="submit" class="btn btn-primary">PLAY</button>
+<%= @word %>
+  </form>
+</div>
